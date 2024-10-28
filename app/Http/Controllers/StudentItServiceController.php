@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\StudentItService;
 use App\Models\StuPersonalRecord;
+use App\Models\Indox;
 use Illuminate\Support\Facades\DB;
 use App\Models\StudentItCredentials;
 use Illuminate\Support\Facades\Hash;
@@ -199,14 +200,18 @@ class StudentItServiceController extends Controller
         return redirect()->back()->with('success', 'This student form has been accepted.');
     }
 
-    public function reject($id)
+    public function reject(Request $request)
     {
-        $student = StudentItService::find($id);
-
+        Indox::create([
+            'reciever_id' => $request->reciever_id,
+            'sender_name' => $request->sender_name,
+            'message' => $request->message,
+        ]);
+        $student = StudentItService::find($request->id);
         // Delete the record
         $student->delete();
 
-        return redirect()->back()->with('reject', 'This student form has been rejected.');
+        return redirect()->route('student-it-services.pending',)->with('reject', 'This student form has been rejected.');
     }
 
     /**

@@ -145,7 +145,6 @@
     @else
     <div class="button-container d-flex justify-content-center">
       <a href="{{ route('admin-panel.id-card-services') }}" class="btn btn-primary">Back</a>
-      <a href="{{ route('studentrecords.sendMessage', $staff->user_id) }}" class="btn btn-warning mx-3">Send Message</a>
     </div>
     @endif
   </section>

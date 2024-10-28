@@ -102,7 +102,7 @@
                     <ul class="nav flex-column">
                         <li class="nav-item container-fluid">
                             <a class="nav-link active shadow-lg rounded" href="{{ route('facultyrecords.create') }}" style="color: white; padding: 10px; transition: background-color 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); margin: 5px 0;" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';">
-                                <i class="fas fa-id-card"></i> Request for ID Card
+                                <i class="fas fa-id-card"></i> Request for Service Card
                             </a>
                         </li>
                         <li class="nav-item dropdown container-fluid">
@@ -111,7 +111,7 @@
                             </a>
                             <ul class="dropdown-menu container-fluid" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item container-fluid" href="{{ route('faculty-it-services.create') }}">IT Services Form</a></li>
-                                 <li><a class="dropdown-item container-fluid" href="{{ route('faculty-it-credential') }}">View My Credential</a></li> 
+                                 <li><a class="dropdown-item container-fluid" href="{{ route('faculty-it-credential') }}">View My IT Credential</a></li> 
                             </ul>
                         </li>
                         <li class="nav-item container-fluid">
@@ -150,7 +150,7 @@
                                     <i class="fas fa-envelope"></i> Inbox
                                 </a>
                                 <a href="{{ route('facultyrecords.create') }}" class="btn btn-primary mb-2" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;">
-                                    <i class="fas fa-id-card"></i> Request for ID Card
+                                    <i class="fas fa-id-card"></i> Request for service card
                                 </a>
                                 <div class="dropdown mt-2 mx-3">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="itServicesDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;">
@@ -158,7 +158,7 @@
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="itServicesDropdown">
                                         <li><a class="dropdown-item" href="{{ route('faculty-it-services.create') }}">Request for IT Services</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('faculty-it-credential')}}">View My Credential</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('faculty-it-credential')}}">View My IT Credential</a></li>
                                     </ul>
                                 </div>
                                

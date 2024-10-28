@@ -59,7 +59,7 @@
                                 <option value="resultadmin">Result Admin</option>
                             </select>
                         </div> -->
-                        <button type="submit" class="btn btn-primary">Update Admin</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>
             </div>

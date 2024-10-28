@@ -72,7 +72,6 @@
                 <td>{{ $student->created_at}}</td>
                 <td class="d-flex flex-column flex-start row-gap-2"> 
                     <a href="{{ route('studentrecords.show', $student->id) }}" class="btn btn-info btn-sm">View Details</a>
-                    <a href="{{ route('studentrecords.sendMessage', ['id' => $student->user_id]) }}" class="btn btn-success mx-2">Message</a>
                 </td>
             </tr>
             @endif

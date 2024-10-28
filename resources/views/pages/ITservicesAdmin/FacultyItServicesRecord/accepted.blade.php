@@ -64,7 +64,7 @@
                 <td>{{ $faculty->created_at }}</td>
                 <td class="d-flex flex-column flex-start row-gap-2"> 
                     <a href="{{ route('faculty-it-services.show', $faculty->id) }}" class="btn btn-info btn-sm">View Details</a>
-                    <a href="{{ route('faculty-it-services.sendMessage', ['id' => $faculty->user_id]) }}" class="btn btn-success mx-2">Message</a>
+                
                 </td>
             </tr>
             @endif

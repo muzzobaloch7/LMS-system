@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FacultyItService;
 use App\Models\FacultyItCredential;
+use App\Models\Indox;
 
 class FacultyItServiceController extends Controller
 {
@@ -167,9 +168,9 @@ class FacultyItServiceController extends Controller
     }
 
 
-    public function accept(FacultyItService $facultyItService)
+    public function accept(Request $request)
     {
-        $facultys = FacultyItService::find($facultyItService->id);
+        $facultys = FacultyItService::find($request->id);
     
         if (!$facultys) {
             return redirect()->back()->with('error', 'Staff IT service request not found.');
@@ -181,14 +182,19 @@ class FacultyItServiceController extends Controller
         return redirect()->back()->with('success', 'This Staff form has been accepted.');
     }
     
-    public function reject(FacultyItService $facultyItService)
+    public function reject(Request $request)
     {
-        $facultys = FacultyItService::find($facultyItService->id);
+        Indox::create([
+            'reciever_id' => $request->reciever_id,
+            'sender_name' => $request->sender_name,
+            'message' => $request->message,
+        ]);
+        $facultys = FacultyItService::find($request->id);
     
         // Delete the record
         $facultys->delete();
     
-        return redirect()->back()->with('reject', 'This Staff form has been rejected.');
+        return redirect()->route('faculty-it-services.pending')->with('reject', 'This Staff form has been rejected.');
     
         
     }

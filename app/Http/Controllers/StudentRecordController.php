@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\StudentRecord;
+use App\Models\Indox;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -122,9 +123,14 @@ class StudentRecordController extends Controller
         return view('pages.IDcardAdmin.message', ['students' => $students]);
     }
 
-    public function accept($id)
+    public function accept(Request $request)
     {
-        $students = StudentRecord::find($id);    
+        Indox::create([
+            'reciever_id' => $request->reciever_id,
+            'sender_name' => $request->sender_name,
+            'message' => $request->message,
+        ]);
+        $students = StudentRecord::find($request->id);    
         if (!$students) {
             return redirect()->back()->with('error', 'Student ID Card service request not found.');
         }
@@ -134,12 +140,17 @@ class StudentRecordController extends Controller
         return redirect()->back()->with('success', 'This student form has been accepted.');
     }
     
-    public function reject($id)
+    public function reject(Request $request)
     {
-        $students = StudentRecord::find($id);    
+        Indox::create([
+            'reciever_id' => $request->reciever_id,
+            'sender_name' => $request->sender_name,
+            'message' => $request->message,
+        ]);
+        $students = StudentRecord::find($request->id);    
         $students->delete();
     
-        return redirect()->back()->with('reject', 'This student form has been rejected.');
+        return redirect()->route('studentrecords.pending')->with('error','This Form is rejected ');
     }
     
     /**

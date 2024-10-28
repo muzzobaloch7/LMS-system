@@ -49,6 +49,8 @@ Route::get('/accepted', [StudentRecordController::class , 'accepted'])->name('st
 Route::get('/sendMessage/{id}', [StudentRecordController::class , 'sendMessage'])->name('studentrecords.sendMessage')->middleware('IsUserValid:idcardadmin,mainadmin');
 Route::get('/studentrecords/pending/search', [StudentRecordController::class, 'psearch'])->name('studentrecords.psearch');
 Route::get('/studentrecords/accepted/search', [StudentRecordController::class, 'asearch'])->name('studentrecords.asearch');
+Route::post('/studentrecords/accept',[StudentRecordController::class , 'accept'])->name('card-acception.message');
+Route::post('/studentrecords/reject',[StudentRecordController::class , 'reject'])->name('card-rejection.message');
 
 
 // Faculty ID Card Services Routes
@@ -74,6 +76,7 @@ Route::get('studentitservices/pending', [StudentItServiceController::class, 'pen
 Route::get('studentitservices/accepted', [StudentItServiceController::class, 'accepted'])->name('student-it-services.accepted')->middleware('IsUserValid:itservicesadmin,mainadmin');
 Route::get('/student-it-services/pending/search', [StudentItServiceController::class, 'psearch'])->name('student-it-services.psearch');
 Route::get('/student-it-services/accepted/search', [StudentItServiceController::class, 'asearch'])->name('student-it-services.asearch');
+Route::post('/student-it-services/reject',[StudentItServiceController::class , 'reject'])->name('rejection.message');
 
 // Faculty IT Services Routes
 Route::resource('faculty-it-services', FacultyItServiceController::class);
@@ -84,6 +87,7 @@ Route::get('facultyitservices/pending', [FacultyItServiceController::class, 'pen
 Route::get('facultyitservices/accepted', [FacultyItServiceController::class, 'accepted'])->name('faculty-it-services.accepted')->middleware('IsUserValid:itservicesadmin,mainadmin');
 Route::get('/faculty-it-services/pending/search', [FacultyItServiceController::class, 'psearch'])->name('faculty-it-services.psearch');
 Route::get('/faculty-it-services/accepted/search', [FacultyItServiceController::class, 'asearch'])->name('faculty-it-services.asearch');
+Route::post('/faculty-it-services/reject',[FacultyItServiceController::class , 'reject'])->name('faculty-rejection.message');
 
 // IT Services Admin Panel Routes
 Route::get('admin-panel/it-services',[AdminPanelController::class , 'itServices'])->name('admin-panel.it-services')->middleware('IsUserValid:itservicesadmin,mainadmin');

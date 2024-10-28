@@ -4,7 +4,7 @@
 @endsection
 
 
-@section('buttons')
+{{-- @section('buttons')
 <div class="container shadow-sm p-3" style="margin:70px 0 0 0">
                     <div class="d-flex justify-content-center">
                         <a href="{{ route('admin-panel.it-services') }}" class="btn btn-primary mx-2" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;">
@@ -18,7 +18,7 @@
                         </a>
                     </div>
                 </div>
-@endsection
+@endsection --}}
 
 @section('quantity')
 <div class="container shadow-sm my-4 p-3">

@@ -161,7 +161,6 @@
                                 <th>Sender</th>
                                 <th>Receiver</th>
                                 <th>Message</th>
-                                <th>Action</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -171,13 +170,6 @@
                                 <td>{{$message->sender_name}}</td>
                                 <td>{{Auth::user()->name}}</td>
                                 <td>{{$message->message}}</td>
-                                <td>
-                                <form action="{{ route('inbox.delete',[$message->id]) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger mx-2" type="submit" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;">Delete</button>
-                                </form>
-                                </td>
                               </tr>
                             </tbody>
                             @endif

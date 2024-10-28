@@ -2,18 +2,7 @@
                 @section('quantity')
                 <div class="container mt-4">
                     <div class="row justify-content-center">
-                        <div class="col-md-6 text-center mb-3">
-                            <a href="{{ route('student-it-services.accepted') }}" class="alert alert-info shadow-sm d-inline-block" role="alert" style="background-color: #0b2f72; color: white;  width: 100%; padding: 40px 20px; text-decoration: none;">
-                                <i class="fas fa-user-graduate" style="font-size: 2rem;"></i> 
-                                <div class="mt-2">Total Accepted Students Record: <b>{{ $students->where('accepted',true)->count() }}</b> students</div>
-                            </a>
-                        </div>
-                        <div class="col-md-6 text-center mb-3">
-                            <a href="{{ route('faculty-it-services.accepted') }}" class="alert alert-info shadow-sm d-inline-block" role="alert" style="background-color: #0b2f72; color: white;  width: 100%; padding: 40px 20px; text-decoration: none;">
-                                <i class="fas fa-chalkboard-teacher" style="font-size: 2rem;"></i> 
-                                <div class="mt-2">Total Accepted Staff Record: <b>{{ $facultys->where('accepted',true)->count() }}</b> staff members</div>
-                            </a>
-                        </div>
+                        
                         <div class="col-md-6 text-center mb-3">
                             <a href="{{ route('student-it-services.pending') }}" class="alert alert-warning shadow-sm d-inline-block" role="alert" style="background-color: cyan; color: black;  width: 100%; padding: 40px 20px; text-decoration: none;">
                                 <i class="fas fa-user-graduate" style="font-size: 2rem;"></i> 
@@ -24,6 +13,18 @@
                             <a href="{{ route('faculty-it-services.pending') }}" class="alert alert-warning shadow-sm d-inline-block" role="alert" style="background-color: cyan; color: black;  width: 100%; padding: 40px 20px; text-decoration: none;">
                                 <i class="fas fa-chalkboard-teacher" style="font-size: 2rem;"></i> 
                                 <div class="mt-2">Total Pending Staff Record: <b>{{ $facultys->where('accepted', false)->count() }}</b> staff members</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 text-center mb-3">
+                            <a href="{{ route('student-it-services.accepted') }}" class="alert alert-info shadow-sm d-inline-block" role="alert" style="background-color: #0b2f72; color: white;  width: 100%; padding: 40px 20px; text-decoration: none;">
+                                <i class="fas fa-user-graduate" style="font-size: 2rem;"></i> 
+                                <div class="mt-2">Total Accepted Students Record: <b>{{ $students->where('accepted',true)->count() }}</b> students</div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 text-center mb-3">
+                            <a href="{{ route('faculty-it-services.accepted') }}" class="alert alert-info shadow-sm d-inline-block" role="alert" style="background-color: #0b2f72; color: white;  width: 100%; padding: 40px 20px; text-decoration: none;">
+                                <i class="fas fa-chalkboard-teacher" style="font-size: 2rem;"></i> 
+                                <div class="mt-2">Total Accepted Staff Record: <b>{{ $facultys->where('accepted',true)->count() }}</b> staff members</div>
                             </a>
                         </div>
                     </div>

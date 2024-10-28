@@ -67,8 +67,8 @@
                                 <i class="fas fa-user-graduate"></i> <span>Student ID Card Records</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #0b2f72; color: white;">
-                                <li><a class="dropdown-item" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';" href="{{ route('studentrecords.pending') }}" style="color: white;">Pending records</a></li>
-                                <li><a class="dropdown-item" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';" href="{{ route('studentrecords.accepted') }}" style="color: white;">Accepted records</a></li>
+                                <li><a class="dropdown-item" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';" href="{{ route('studentrecords.pending') }}" style="color: white;">Student Pending records</a></li>
+                                <li><a class="dropdown-item" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';" href="{{ route('studentrecords.accepted') }}" style="color: white;">Student Accepted records</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -84,7 +84,7 @@
                         @if(auth()->user()->role === 'idcardadmin')
                         <li class="nav-item">
                             <a class="nav-link shadow-lg rounded" href="{{ route('idcard-admin-panel.editUser',['user' => Auth::user()->id]) }}" style="color: white; padding: 10px; transition: background-color 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); margin: 5px 0;" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';">
-                                <i class="fas fa-user-cog"></i> Profile Setting
+                                <i class="fas fa-user-cog"></i> update Account Details
                             </a>
                         </li>
                         @endif

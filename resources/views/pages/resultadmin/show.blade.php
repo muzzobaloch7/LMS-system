@@ -63,7 +63,7 @@
             @endphp
             @if($result->where('semester', $selectedSemester)->where('term', $selectedTerm)->isEmpty())
                 <div class="alert alert-danger" role="alert">
-                    ResultNot Found. 
+                    Result Not Found. 
                     <a href="{{ route('student') }}" class="btn btn-primary">Go Back</a>
                 </div>
             @else

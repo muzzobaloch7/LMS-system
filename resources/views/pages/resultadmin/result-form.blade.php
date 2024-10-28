@@ -163,7 +163,7 @@
 <div class="container mt-5 " >
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card animate__animated animate__fadeInUp" style="background-color: #0b2f72; color: white;">
+            <div class="card animate__animated animate__fadeInUp" style="background-color: #f8f9fa; color: black;">
                 <div class="card-header" style="background-color: #007BFF; color: white;">
                     <h4 class="mb-0">Upload Result Form</h4>
                 </div>

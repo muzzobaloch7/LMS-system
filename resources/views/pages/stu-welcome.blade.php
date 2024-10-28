@@ -111,12 +111,12 @@
                             </a>
                             <ul class="dropdown-menu container-fluid" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item container-fluid" href="{{ route('student-it-services.create') }}">IT Services Form</a></li>
-                                 <li><a class="dropdown-item container-fluid" href="{{ route('student-it-credential') }}">View My Credential</a></li> 
+                                 <li><a class="dropdown-item container-fluid" href="{{ route('student-it-credential') }}">View My IT Credential</a></li> 
                             </ul>
                         </li>
                         <li class="nav-item container-fluid">
                             <a class="nav-link active shadow-lg rounded" href="{{ route('show-result') }}" style="color: white; padding: 10px; transition: background-color 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); margin: 5px 0;" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';">
-                                <i class="fas fa-graduation-cap"></i> Show Result
+                                <i class="fas fa-graduation-cap"></i> View Result
                             </a>
                         </li>
                         <li class="nav-item container-fluid">
@@ -163,11 +163,11 @@
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="itServicesDropdown">
                                         <li><a class="dropdown-item" href="{{ route('student-it-services.create') }}">Request for IT Services</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('student-it-credential')}}">View My Credential</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('student-it-credential')}}">View My IT Credential</a></li>
                                     </ul>
                                 </div>
                                 <a href="{{ route('show-result') }}" class="btn btn-info mb-2" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;">
-                                    <i class="fas fa-id-card"></i> Show Result
+                                    <i class="fas fa-id-card"></i> View Result
                                 </a>
                                
                             </div>

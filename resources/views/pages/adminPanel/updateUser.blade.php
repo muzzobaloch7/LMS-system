@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-primary text-white">Update Admin</div>
+                <div class="card-header bg-primary text-white">Update Details</div>
                 <div class="card-body">
                     @if(session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -47,7 +47,7 @@
                             
                         </div>
                       
-                        <button type="submit" class="btn btn-primary">Update Admin</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>
             </div>

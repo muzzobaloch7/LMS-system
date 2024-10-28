@@ -75,7 +75,7 @@
                                 <i class="fas fa-users-cog"></i> <span>Manage Sub Admin</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #0b2f72; color: white;">
-                                <li><a class="dropdown-item" href="{{ route('admin-panel.addUser') }}" style="color: white;">Add Admin</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin-panel.addUser') }}" style="color: white;">Add New Sub Admin</a></li>
                                 <li><a class="dropdown-item" href="{{ route('admin-panel.itadmin') }}" style="color: white;">IT Services Admin</a></li>
                                 <li><a class="dropdown-item" href="{{ route('admin-panel.idadmin') }}" style="color: white;">ID Card Record Admin</a></li>
                                 <li><a class="dropdown-item" href="{{ route('admin-panel.resadmin') }}" style="color: white;">Student Result Admin</a></li>
