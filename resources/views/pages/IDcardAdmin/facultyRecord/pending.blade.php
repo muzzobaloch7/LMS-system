@@ -5,12 +5,12 @@
 
 @section('content')
 
-<h1 class="text-center my-5">Pending Records Of Student</h1>
+<h1 class="text-center my-5">Pending Records Of Staff</h1>
  <!-- Search Form -->
  <div class="row justify-content-center mb-4">
         <div class="col-md-6">
-            <form action="{{ route('studentrecords.psearch') }}" method="GET" class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Search student records..." aria-label="Search student records" aria-describedby="button-addon2">
+            <form action="{{ route('facultyrecords.psearch') }}" method="GET" class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search Staff records..." aria-label="Search Staff records" aria-describedby="button-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
                 </div>
@@ -71,7 +71,7 @@
                 </td>
                 <td>{{ $staff->created_at}}</td>
                 <td class="d-flex flex-column flex-start row-gap-2"> 
-                    <a href="{{ route('facultyrecord.show', $staff->id) }}" class="btn btn-info btn-sm">View Details</a>
+                    <a href="{{ route('facultyrecords.show', $staff->id) }}" class="btn btn-info btn-sm">View Details</a>
                     <a href="{{ route('facultyrecords.sendMessage', ['id' => $staff->user_id]) }}" class="btn btn-success mx-2">Message</a>
                 </td>
             </tr>
@@ -79,9 +79,7 @@
             @endforeach
         </tbody>
     </table>
-    {{-- <div class="mt-3">
-        {{ $pendingstudents->links() }}
-    </div> --}}
+    
 </div>
 
 @endsection

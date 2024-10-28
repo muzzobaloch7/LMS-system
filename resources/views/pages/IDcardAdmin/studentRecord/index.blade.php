@@ -4,9 +4,6 @@
 @section('title')
     Student Record
 @endsection
-@section('main-title')
-    Student Record
-@endsection
 
 @section('content')
 

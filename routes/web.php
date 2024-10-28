@@ -50,15 +50,19 @@ Route::get('/sendMessage/{id}', [StudentRecordController::class , 'sendMessage']
 Route::get('/studentrecords/pending/search', [StudentRecordController::class, 'psearch'])->name('studentrecords.psearch');
 Route::get('/studentrecords/accepted/search', [StudentRecordController::class, 'asearch'])->name('studentrecords.asearch');
 
+
 // Faculty ID Card Services Routes
-Route::resource('facultyrecords', FacultyRecordController::class);  
+// Route::resource('facultyrecords', FacultyRecordController::class);  
 Route::post('facultyrecords', [FacultyRecordController::class , 'store'])->name('facultyrecords.store');
 Route::get('facultyrecords/create', [FacultyRecordController::class , 'create'])->name('facultyrecords.create');
-Route::get('/facultyrecords/pending', [FacultyRecordController::class, 'pending'])->name('facultyrecords.pending')->middleware('IsUserValid:idcardadmin,mainadmin');
+Route::get('/facultyrecords/pendingRecord', [FacultyRecordController::class, 'pending'])->name('facultyrecords.pending')->middleware('IsUserValid:idcardadmin,mainadmin');
 Route::get('/facultyrecords/accepted', [FacultyRecordController::class, 'accepted'])->name('facultyrecords.accepted')->middleware('IsUserValid:idcardadmin,mainadmin');
-Route::get('/sendMessage/{id}', [FacultyRecordController::class , 'sendMessage'])->name('facultyrecords.sendMessage')->middleware('IsUserValid:idcardadmin,mainadmin');
-Route::get('/facultyrecords/pending/search', [FacultyRecordController::class, 'psearch'])->name('facultyrecords.psearch');
-Route::get('/facultyrecords/accepted/search', [FacultyRecordController::class, 'asearch'])->name('facultyrecords.asearch');
+Route::get('/facultysendMessage/{id}', [FacultyRecordController::class , 'sendMessage'])->name('faculty.sendMessage')->middleware('IsUserValid:idcardadmin,mainadmin');
+Route::get('/facultyrecords/psearch', [FacultyRecordController::class, 'psearch'])->name('facultyrecords.psearch');
+Route::get('/facultyrecords/asearch', [FacultyRecordController::class, 'asearch'])->name('facultyrecords.asearch');
+Route::get('/facultyrecords/show/{id}',[FacultyRecordController::class, 'show'])->name('facultyrecords.show')->middleware('IsUserValid:idcardadmin,mainadmin');
+Route::get('/facultyrecords/accept/{id}',[FacultyRecordController::class, 'accept'])->name('faculty.accept')->middleware('IsUserValid:idcardadmin,mainadmin');
+Route::delete('/facultyrecords/reject/{id}',[FacultyRecordController::class, 'reject'])->name('faculty.destroy')->middleware('IsUserValid:idcardadmin,mainadmin');
 
 
 // Student IT Services Routes

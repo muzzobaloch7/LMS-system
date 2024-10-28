@@ -19,17 +19,17 @@ class FacultyRecordController extends Controller
     }
     public function index()
     {
-        $staffs = DB::table('faculty_records')->where('accepted', 0)->paginate(10);
+        $staffs = FacultyRecord::all();
         return view('pages.IDcardadmin.facultyRecord.index', compact('staffs'));
     }
     public function pending()
     {
-        $pendingstaffs = DB::table('faculty_records')->where('accepted', 0)->paginate(10);
-            return view('pages.IDcardadmin.facultyRecord.pending', compact('pendingstaffs'));
+        $pendingstaffs = FacultyRecord::where('accepted', 0)->get();
+            return view('pages.IDcardAdmin.facultyRecord.pending', compact('pendingstaffs'));
     }
     public function accepted()
     {
-        $acceptedStaffs = DB::table('faculty_records')->where('accepted', 1)->paginate(10);
+        $acceptedStaffs = FacultyRecord::where('accepted', 1)->get();
             return view('pages.IDcardAdmin.facultyRecord.accepted', compact('acceptedStaffs'));
     }
 
@@ -131,7 +131,7 @@ class FacultyRecordController extends Controller
         $staffs->accepted = true;
         $staffs->save();
     
-        return redirect()->back()->with('success', 'This student form has been accepted.');
+        return redirect()->back()->with('success', 'This Staff form has been accepted.');
     }
     
     public function reject($id)
