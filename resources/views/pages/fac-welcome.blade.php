@@ -84,7 +84,7 @@
                 <img class="" src="{{ asset('images/ug-logo.png') }}" alt="University Logo" style="object-fit:cover; height: 100%; width: 100%; margin-left:-3px;">
             </div>
             <div style="margin-left: auto;">
-                <h1 class="m-0" style="font-weight: bold;">University of Gwadar Student Portal</h1>
+                <h1 class="m-0" style="font-weight: bold;">University of Gwadar Staff Portal</h1>
             </div>
             <div style="margin-left: auto;">
                 <a href="{{ route('logout') }}" class="btn btn-danger " style="border-radius: 5px; padding: 10px 15px; font-weight: bold; margin:0px;"><i class="fas fa-sign-out-alt"></i> Logout</a>

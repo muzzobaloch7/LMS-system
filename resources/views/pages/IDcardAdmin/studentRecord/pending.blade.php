@@ -28,16 +28,9 @@
                 <th>Student Name</th>
                 <th>Relationship</th>
                 <th>Father/Husband</th>
-                <th>Department</th>
-                <th>Duration</th>
                 <th>Student Id no</th>
                 <th>Student Email</th>
-                <th>Student DoB</th>
-                <th>Student Blood Group</th>
                 <th>Student Contact No</th>
-                <th>Student Emergency No</th>
-                <th>Student Address</th>
-                <th>Student NIC No</th>
                 <th>Accepted</th>
                 <th>Submission Time</th>
                 <th>View Student</th>
@@ -52,16 +45,9 @@
                 <td>{{ $student->student_name }}</td>
                 <td>{{ $student->relationship_status }}</td>
                 <td>{{ $student->father_husband }}</td>
-                <td>{{ $student->department }}</td>
-                <td>{{ $student->duration }}</td>
                 <td>{{ $student->student_id_no }}</td>
                 <td>{{ $student->student_email }}</td>
-                <td>{{ $student->student_dob }}</td>
-                <td>{{ $student->student_bg }}</td>
                 <td>{{ $student->student_contact_no }}</td>
-                <td>{{ $student->student_emergency_contact_no }}</td>
-                <td>{{ $student->student_address }}</td>
-                <td>{{ $student->student_nic_no }}</td>
                 <td>@if( $student->accepted )
                         Yes
                     @endif

@@ -22,16 +22,8 @@
                 <th>Registration No</th>
                 <th>Student Name</th>
                 <th>Student Roll no</th>
-                <th>Department</th>
-                <th>Degree Program</th>
-                <th>Current Semester</th>
-                <th>Duration</th>
-                <th>Gender</th>
                 <th>Student Email</th>
                 <th>Student Contact No</th>
-                <th>Hostel Name</th>
-                <th>Floor No</th>
-                <th>Room No</th>
                 <th>Accepted</th>
                 <th>Submission Time</th>
                 <th>View Student</th>
@@ -45,50 +37,8 @@
                 <td>{{ $student->registration_no }}</td>
                 <td>{{ $student->student_name }}</td>
                 <td>{{ $student->student_id_no }}</td>
-                <td>
-                    @if($student->department == 1)
-                        Computer Science
-                    @elseif($student->department == 2)
-                        Commerce
-                    @elseif($student->department == 3)
-                        Education
-                    @elseif($student->department == 4)
-                        BBA
-                    @elseif($student->department == 5)
-                        Chemistry
-                    @elseif($student->department == 6)
-                        English
-                    @elseif($student->department == 7)
-                        Economics
-                    @endif
-                </td>
-                <td>
-                    @if($student->degree_program == 1)
-                        BSIT
-                    @elseif($student->degree_program == 2)
-                        BSDS
-                    @elseif($student->degree_program == 3)
-                        B.ED
-                    @elseif($student->degree_program == 4)
-                        B.COM
-                    @elseif($student->degree_program == 5)
-                        BBA
-                    @elseif($student->degree_program == 6)
-                        BS.Chemistry
-                    @elseif($student->degree_program == 7)
-                        BS.English
-                    @elseif($student->degree_program == 8)
-                        BS.Economic
-                    @endif
-                </td>
-                <td>{{ $student->current_semester }}</td>
-                <td>{{ $student->duration }}</td>
-                <td>{{ $student->gender }}</td>
                 <td>{{ $student->student_email }}</td>
                 <td>{{ $student->student_contact_no }}</td>
-                <td>{{ $student->hostel_name }}</td>
-                <td>{{ $student->floor_no }}</td>
-                <td>{{ $student->room_no }}</td>
                 <td>@if( $student->accepted )
                     Yes
                     @endif

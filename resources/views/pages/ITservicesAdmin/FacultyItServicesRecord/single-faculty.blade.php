@@ -108,7 +108,6 @@
       <div class="button-container d-flex justify-content-center">
         <a href="{{ route('admin-panel.it-services') }}" class="btn btn-secondary mx-2" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;">Back</a>
         <button class="btn btn-success mx-2" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;" data-bs-toggle="modal" data-bs-target="#acceptModal">Accept</button> 
-        <!-- {{--<a href="{{ route('faculty-it-services.accept', $facultys->id) }}" class="btn btn-success mx-2" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;">Accept</a>--}} --> 
         <button class="btn btn-danger mx-2" type="button" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;" data-bs-toggle="modal" data-bs-target="#rejectModal">Reject</button>
       </div>
       </div>
@@ -135,14 +134,16 @@
               <input type="text" class="form-control" id="sender_name" name="sender_name" value="{{auth()->user()->name}}" required>
           </div>
           <div class="form-group mb-3">
-              <label for="reciever_id" class="form-label">Receiver ID:</label>
-              <input type="text" class="form-control" id="reciever_id" name="reciever_id" value="{{$facultys->first()->user_id}}" required>
+              <label for="reciever_name" class="form-label">Receiver name:</label>
+              <input type="text" class="form-control" id="reciever_name" name="reciever_name" value="{{$facultys->first()->faculty_name}}" required>
           </div>
           <div class="form-group mb-3">
               <label for="message" class="form-label">Message:</label>
               <textarea class="form-control" id="message" name="message" rows="3" required>Your IT services request has not been approved. Please review the requirements or contact IT support for assistance.</textarea>
           </div>
           <input type="hidden" name="id" value="{{$facultys->first()->id}}">
+          <input type="hidden" name="sender_id" value="{{auth()->user()->id}}">
+          <input type="hidden" name="reciever_id" value="{{$facultys->first()->user_id}}">
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <button type="submit" class="btn btn-primary">Send Message</button>
               <a href="{{ route('faculty-it-services.show', $facultys->first()->id) }}" class="btn btn-info">Back</a>
@@ -178,7 +179,7 @@
                 </div>
               </div>
             </div>
-          <div class="modal-body">
+          
             <div class="mb-3">
               <label for="username" class="form-label">Faculty Microsoft Username</label>
               <input type="text" class="form-control" id="micro_username" name="micro_username" required>
@@ -194,7 +195,6 @@
                 </div>
               </div>
             </div>
-          <div class="modal-body">
             <div class="mb-3">
               <label for="username" class="form-label">Faculty Turnitin Username</label>
               <input type="text" class="form-control" id="turnitin_username" name="turnit_username" required>

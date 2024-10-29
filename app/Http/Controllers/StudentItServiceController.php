@@ -202,9 +202,12 @@ class StudentItServiceController extends Controller
 
     public function reject(Request $request)
     {
+        // return dd($request->reciever_name);
         Indox::create([
             'reciever_id' => $request->reciever_id,
+            'sender_id' => $request->sender_id,
             'sender_name' => $request->sender_name,
+            'reciever_name' => $request->reciever_name,
             'message' => $request->message,
         ]);
         $student = StudentItService::find($request->id);

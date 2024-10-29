@@ -134,13 +134,8 @@
     @if($staff->accepted === 0)
     <div class="button-container d-flex justify-content-center">
       <a href="{{ route('admin-panel.id-card-services') }}" class="btn btn-primary">Back</a>
-      <a href="{{ route('faculty.accept', $staff->id) }}" class="btn btn-success mx-3">Accept</a>
-      <a href="{{ route('faculty.sendMessage', $staff->user_id) }}" class="btn btn-warning mx-3">Send Message</a>
-      <form action="{{ route('faculty.destroy',[$staff->id]) }}" method="post">
-        @csrf
-        @method('DELETE')
-        <button class="btn btn-danger" type="submit">Reject</button>
-      </form>
+      <button class="btn btn-success mx-2" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;" data-bs-toggle="modal" data-bs-target="#acceptModal">Accept</button> 
+        <button class="btn btn-danger mx-2" type="button" style="border-radius: 20px; padding: 10px 20px; font-weight: bold; transition: background-color 0.3s;" data-bs-toggle="modal" data-bs-target="#rejectModal">Reject</button>
     </div>
     @else
     <div class="button-container d-flex justify-content-center">
@@ -148,6 +143,75 @@
     </div>
     @endif
   </section>
+  
+  <div class="modal fade" id="acceptModal" tabindex="-1" aria-labelledby="acceptModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="acceptModalLabel">Enter Acceptance Message</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{ route('card-acception.message') }}" method="POST" class="p-4 border rounded bg-light shadow">
+          @csrf
+          <h4 class="mb-4 text-center">Send Message</h4>
+          <div class="form-group mb-3">
+              <label for="sender_name" class="form-label">Sender name:</label>
+              <input type="text" class="form-control" id="sender_name" name="sender_name" value="{{auth()->user()->name}}" required readonly>
+          </div>
+          <div class="form-group mb-3">
+              <label for="reciever_name" class="form-label">Receiver name:</label>
+              <input type="text" class="form-control" id="reciever_name" name="reciever_name" value="{{$students->first()->student_name}}" required readonly>
+          </div>
+          <div class="form-group mb-3">
+              <label for="message" class="form-label">Message:</label>
+              <textarea class="form-control" id="message" name="message" rows="3" required>Your ID card request has been approved. Please come atfer 3 or 4 days to the clerk office with 200 rupees Fee</textarea>
+          </div>
+          <input type="hidden" name="id" value="{{$students->first()->id}}">
+          <input type="hidden" name="sender_id" value="{{auth()->user()->id}}">
+          <input type="hidden" name="reciever_id" value="{{$students->first()->user_id}}">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <a href="{{ route('student-it-services.show', $students->first()->id) }}" class="btn btn-info">Back</a>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div> 
+
+  <div class="modal fade" id="rejectModal" tabindex="-1" aria-labelledby="rejectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rejectModalLabel">Enter Rejection Reason</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{ route('card-rejection.message') }}" method="POST" class="p-4 border rounded bg-light shadow">
+          @csrf
+          <h4 class="mb-4 text-center">Send Message</h4>
+          <div class="form-group mb-3">
+              <label for="sender_name" class="form-label">Sender name:</label>
+              <input type="text" class="form-control" id="sender_name" name="sender_name" value="{{auth()->user()->name}}" required>
+          </div>
+          <div class="form-group mb-3">
+              <label for="reciever_name" class="form-label">Receiver name:</label>
+              <input type="text" class="form-control" id="reciever_name" name="reciever_name" value="{{$students->first()->student_name}}" required>
+          </div>
+          <div class="form-group mb-3">
+              <label for="message" class="form-label">Message:</label>
+              <textarea class="form-control" id="message" name="message" rows="3" required>Your ID card request has not been approved. Please review the requirements or contact clerk office for assistance.</textarea>
+          </div>
+          <input type="hidden" name="id" value="{{$students->first()->id}}">
+          <input type="hidden" name="sender_id" value="{{auth()->user()->id}}">
+          <input type="hidden" name="reciever_id" value="{{$students->first()->user_id}}">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <a href="{{ route('student-it-services.show', $students->first()->id) }}" class="btn btn-info">Back</a>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div> 
+
 
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>

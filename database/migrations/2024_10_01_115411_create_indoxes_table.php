@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('indoxes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('reciever_id')->nullable();
-            $table->string('sender_name',30);
+            $table->unsignedBigInteger('reciever_id');
+            $table->string('reciever_name');
+            $table->unsignedBigInteger('sender_id');
+            $table->string('sender_name');
             $table->string('message');
             $table->timestamps();
         });

@@ -11,6 +11,8 @@ class Indox extends Model
     protected $fillable = [
         'reciever_id',
         'sender_name',
+        'reciever_name',
+        'sender_id',
         'message',
         'status',
     ];

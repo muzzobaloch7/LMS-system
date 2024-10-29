@@ -29,9 +29,11 @@ Route::get('logout',[UserController::class,'logout'])->name('logout');
 Route::get('inbox/student',[IndoxController::class, 'index'])->name('inbox');
 Route::get('inbox/staff',[IndoxController::class, 'facIndex'])->name('fac-inbox');
 Route::post('/inbox/idstore', [IndoxController::class , 'idstore'])->name('inbox.idstore');
+Route::post('/inbox/facidstore', [IndoxController::class , 'facidstore'])->name('inbox.facidstore');
 Route::post('/inbox/stuitstore', [IndoxController::class , 'stuitstore'])->name('inbox.stuitstore');
 Route::post('/inbox/facitstore', [IndoxController::class , 'facitstore'])->name('inbox.facitstore');
 Route::post('/inbox/resultstore', [IndoxController::class , 'resultstore'])->name('inbox.resultstore');
+
 Route::delete('/inbox/delete/{id}', [IndoxController::class , 'destroy'])->name('inbox.delete');
 
 // Student General Routes
@@ -91,6 +93,7 @@ Route::post('/faculty-it-services/reject',[FacultyItServiceController::class , '
 
 // IT Services Admin Panel Routes
 Route::get('admin-panel/it-services',[AdminPanelController::class , 'itServices'])->name('admin-panel.it-services')->middleware('IsUserValid:itservicesadmin,mainadmin');
+Route::get('admin-panel/it-services/outbox',[AdminPanelController::class , 'itoutbox'])->name('itservice-admin-panel.outbox')->middleware('IsUserValid:itservicesadmin,mainadmin');
 Route::get('admin-panel/it-services/faculty-it-services',[FacultyItServiceController::class , 'index'])->name('faculty-it-services.index')->middleware('IsUserValid:itservicesadmin,mainadmin');
 Route::get('admin-panel/id-card-services/faculty-it-services/{facultyItService}',[FacultyItServiceController::class , 'show'])->name('faculty-it-services.show')->middleware('IsUserValid:itservicesadmin,mainadmin');
 Route::get('admin-panel/id-card-services/faculty-it-services/{facultyItService}',[FacultyItServiceController::class , 'accept'])->name('faculty-it-services.accept')->middleware('IsUserValid:itservicesadmin,mainadmin');
@@ -108,6 +111,7 @@ Route::get('/sendmessage-student-it-services/{id}',[StudentItServiceController::
 
 // Admin Student ID Card Services Routes
 Route::get('admin-panel/id-card-services',[AdminPanelController::class , 'idCardServices'])->name('admin-panel.id-card-services')->middleware('IsUserValid:idcardadmin,mainadmin');
+Route::get('admin-panel/id-card-services/outbox',[AdminPanelController::class , 'idoutbox'])->name('idcard-admin-panel.outbox')->middleware('IsUserValid:idcardadmin,mainadmin');
 Route::get('admin-panel/id-card-services/studentrecords', [StudentRecordController::class , 'index'])->name('studentrecords.index')->middleware('IsUserValid:idcardadmin,mainadmin');
 Route::get('/idcard-admin/{user}/edit', [StudentRecordController::class, 'edit'])->name('idcard-admin-panel.editUser')->middleware('IsUserValid:idcardadmin,mainadmin');
 Route::put('/idcard-admin/{user}', [StudentRecordController::class, 'update'])->name('idcard-admin-panel.updateUser')->middleware('IsUserValid:idcardadmin,mainadmin');
@@ -126,8 +130,11 @@ Route::put('/result-admin/{result_admin}', [ResultAdminController::class, 'updat
 Route::post('/store-request', [ResultAdminController::class, 'requestResultStore'])->name('storeRequest');
 Route::get('/requestresult', [ResultAdminController ::class, 'createForm'])->name('request-result.create');
 Route::get('/result-admin-sendMessage', [ResultAdminController::class , 'sendMessage'])->name('result-admin.sendMessage')->middleware('IsUserValid:resultadmin,mainadmin');
+
+
 // Super Admin Panel Routes
 Route::get('admin-panel',[AdminPanelController::class , 'index'])->name('admin-panel.index')->middleware('IsUserValid:mainadmin');
+Route::get('admin-panel/outbox',[AdminPanelController::class , 'outbox'])->name('admin-panel.outbox')->middleware('IsUserValid:mainadmin');
 Route::get('admin-panel/idcardadmin',[AdminPanelController::class , 'idCardAdmin'])->name('admin-panel.idadmin')->middleware('IsUserValid:mainadmin');
 Route::get('admin-panel/idcardadmin/{id}',[AdminPanelController::class , 'idCardAdminedit'])->name('admin-panel.idadmin.edit')->middleware('IsUserValid:mainadmin');
 Route::put('admin-panel/idcardadmin/{id}',[AdminPanelController::class , 'idCardAdminUpdate'])->name('admin-panel.idadmin.update')->middleware('IsUserValid:mainadmin');

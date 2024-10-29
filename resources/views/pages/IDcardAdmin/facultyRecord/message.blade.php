@@ -19,8 +19,8 @@
                     </button>
                 </div>
             @endif
-            @foreach ($students as $student)
-            <form action="{{ route('inbox.idstore') }}" method="POST" class="p-4 border rounded bg-light shadow">
+            @foreach ($facultys as $faculty)
+            <form action="{{ route('inbox.facidstore') }}" method="POST" class="p-4 border rounded bg-light shadow">
                 @csrf
                 <h4 class="mb-4 text-center">Send Message</h4>
                 <div class="form-group mb-3">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="reciever_id" class="form-label">Receiver ID:</label>
-                    <input type="text" class="form-control" id="reciever_id" name="reciever_id" value="{{$student->user_id}}" required>
+                    <input type="text" class="form-control" id="reciever_id" name="reciever_id" value="{{$faculty->user_id}}" required>
                 </div>
                 <div class="form-group mb-3">
                     <label for="message" class="form-label">Message:</label>

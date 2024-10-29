@@ -24,8 +24,8 @@
                 @csrf
                 <h4 class="mb-4 text-center">Send Message</h4>
                 <div class="form-group mb-3">
-                    <label for="sender_name" class="form-label">Sender name:</label>
-                    <input type="text" class="form-control" id="sender_name" name="sender_name" value="{{auth()->user()->name}}" required>
+                    <label for="sender_id" class="form-label">Sender id:</label>
+                    <input type="text" class="form-control" id="sender_id" name="sender_id" value="{{auth()->user()->id}}" required>
                 </div>
                 <div class="form-group mb-3">
                     <label for="reciever_id" class="form-label">Receiver ID:</label>

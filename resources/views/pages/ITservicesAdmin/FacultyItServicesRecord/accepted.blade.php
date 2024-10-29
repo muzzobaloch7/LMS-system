@@ -22,16 +22,12 @@
                 <th>Faculty ID</th>
                 <th>Faculty Name</th>
                 <th>Faculty Designation</th>
-                <th>Faculty Department</th>
-                <th>Faculty Status</th>
+                
                 <th>Faculty ID No</th>
-                <th>Faculty Gender</th>
+                
                 <th>Faculty Email</th>
                 <th>Faculty Contact No</th>
-                <th>Hostel Name</th>
-                <th>Floor No</th>
-                <th>Room No</th>
-                <th>IT Services</th>
+                
                 <th>Accepted</th>
                 <th>Submission Time</th>
                 <th>View faculty</th>
@@ -44,16 +40,12 @@
                 <td>{{ $faculty->id }}</td>
                 <td>{{ $faculty->faculty_name }}</td>
                 <td>{{ $faculty->faculty_designation }}</td>
-                <td>{{ $faculty->department }}</td>
-                <td>{{ $faculty->faculty_status }}</td>
+               
                 <td>{{ $faculty->faculty_id_no }}</td>
-                <td>{{ $faculty->gender }}</td>
+                
                 <td>{{ $faculty->faculty_email }}</td>
                 <td>{{ $faculty->faculty_contact_no }}</td>
-                <td>{{ $faculty->hostel_name }}</td>
-                <td>{{ $faculty->floor_no }}</td>
-                <td>{{ $faculty->room_no }}</td>
-                <td>{{ $faculty->it_services }}</td>
+                
                 <td>@if( $faculty->accepted )
                     Yes
                     @endif

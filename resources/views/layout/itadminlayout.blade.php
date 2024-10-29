@@ -80,6 +80,11 @@
                                 <li><a class="dropdown-item" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';" href="{{ route('student-it-services.accepted') }}" style="color: white;">Student Accepted Records</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link shadow-lg rounded" href="{{ route('itservice-admin-panel.outbox') }}" style="color: white; padding: 10px; transition: background-color 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); margin: 5px 0;" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';">
+                                <i class="fas fa-envelope"></i> Outbox
+                            </a>
+                        </li>
                         @if(auth()->user()->role === 'itservicesadmin')
                         <li class="nav-item">
                             <a class="nav-link shadow-lg rounded" href="{{ route('itservice-admin-panel.editUser',['user' => Auth::user()->id]) }}" style="color: white; padding: 10px; transition: background-color 0.3s; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); margin: 5px 0;" onmouseover="this.style.backgroundColor='#007BFF'" onmouseout="this.style.backgroundColor='';">

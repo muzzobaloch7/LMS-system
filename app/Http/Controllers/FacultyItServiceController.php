@@ -153,7 +153,7 @@ class FacultyItServiceController extends Controller
         $faculty->accepted = true;
         $faculty->save();
 
-        return redirect()->route('faculty-it-services.show',['faculty' => $facultyItService->id])->with('success', 'This Faculty form has been accepted and credentials have been sent.');
+        return redirect()->route('faculty-it-services.show',['faculty' => $faculty->id])->with('success', 'This Faculty form has been accepted and credentials have been sent.');
     }
 
     public function viewCredentials()

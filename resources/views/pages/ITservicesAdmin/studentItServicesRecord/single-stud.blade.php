@@ -194,8 +194,8 @@
               <input type="text" class="form-control" id="sender_name" name="sender_name" value="{{auth()->user()->name}}" required>
           </div>
           <div class="form-group mb-3">
-              <label for="reciever_id" class="form-label">Receiver ID:</label>
-              <input type="text" class="form-control" id="reciever_id" name="reciever_id" value="{{$students->first()->user_id}}" required>
+              <label for="reciever_name" class="form-label">Receiver name:</label>
+              <input type="text" class="form-control" id="reciever_name" name="reciever_name" value="{{$students->first()->student_name}}" required>
           </div>
           <div class="form-group mb-3">
               <label for="message" class="form-label">Message:</label>
@@ -203,6 +203,8 @@
           </div>
           <input type="hidden" name="id" value="{{$students->first()->id}}">
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="hidden" name="sender_id" value="{{auth()->user()->id}}">
+            <input type="hidden" name="reciever_id" value="{{$students->first()->user_id}}">
               <button type="submit" class="btn btn-primary">Send Message</button>
               <a href="{{ route('student-it-services.show', $students->first()->id) }}" class="btn btn-info">Back</a>
           </div>

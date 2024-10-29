@@ -126,8 +126,10 @@ class StudentRecordController extends Controller
     public function accept(Request $request)
     {
         Indox::create([
-            'reciever_id' => $request->reciever_id,
+           'reciever_id' => $request->reciever_id,
+            'sender_id' => $request->sender_id,
             'sender_name' => $request->sender_name,
+            'reciever_name' => $request->reciever_name,
             'message' => $request->message,
         ]);
         $students = StudentRecord::find($request->id);    
@@ -144,7 +146,9 @@ class StudentRecordController extends Controller
     {
         Indox::create([
             'reciever_id' => $request->reciever_id,
+            'sender_id' => $request->sender_id,
             'sender_name' => $request->sender_name,
+            'reciever_name' => $request->reciever_name,
             'message' => $request->message,
         ]);
         $students = StudentRecord::find($request->id);    

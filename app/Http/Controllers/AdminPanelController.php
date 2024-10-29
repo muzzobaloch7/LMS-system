@@ -10,6 +10,7 @@ use App\Models\StudentRecord;
 use App\Models\FacultyRecord;
 use App\Models\User;
 use App\Models\ResultAdmin;
+use App\Models\Indox;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,6 +25,21 @@ class AdminPanelController extends Controller
         return view('pages.adminPanel.index', compact('facultys','students','student','staff'));
     
    }
+public function outbox(){
+    $messages = Indox::all();
+    return view('pages.adminPanel.outbox' , compact('messages'));
+}
+
+public function idOutbox(){
+    $messages = Indox::all();
+    return view('pages.IDcardAdmin.outbox' , compact('messages'));
+}
+public function itOutbox(){
+    $messages = Indox::all();
+    return view('pages.IDcardAdmin.outbox' , compact('messages'));
+}
+
+
    // ID Card Admin function start
    public function idCardAdmin(){
     $idAdmins = User::where('role','idcardadmin')->get();
